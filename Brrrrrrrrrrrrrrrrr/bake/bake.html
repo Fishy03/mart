@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEGA MART Self-Service Kiosk Outlet</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e53e3e',
+            secondary: '#4299e1',
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-md py-4 px-6">
+      <div class="container mx-auto">
+        <!-- logo -->
+        <div class="flex justify-center mb-6">
+          <h1 class="text-4xl font-['Pacifico'] text-primary">MEGA MART</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <!--location-->
+          <div class="flex justify-between bg-gray-50 border border-gray-300 rounded p-2 w-[50px]">
+            <button class="mt-1 text-primary text-sm font-semibold !rounded-button">
+              <svg class="h-8 w-8 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </button>
+          </div>
+          <!-- search bar -->
+          <div class="relative flex-grow">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+              <div class="w-6 h-6 flex items-center justify-center text-gray-500">
+                <i class="ri-search-line ri-lg"></i>
+              </div>
+            </div>
+            <input
+              type="text"
+              class="w-full pl-12 pr-4 py-3 text-lg bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              placeholder="Search for products..."/>
+          </div>
+          <!-- cart -->
+          <div class="flex items-center bg-gray-50 border border-gray-300 rounded p-3 min-w-[220px]">
+            <div class="relative mr-4">
+              <div class="w-10 h-10 flex items-center justify-center text-primary">
+                <i class="ri-shopping-cart-2-line ri-2x"></i>
+              </div>
+              <span class="cart-badge flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full">0</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">
+                Total: <span class="font-bold text-gray-800">₹0</span>
+              </p>
+              <button
+                class="mt-1 text-primary text-sm font-semibold !rounded-button">
+                View Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto px-6 py-8">
+      <!-- cate head -->
+      <div id="bakery-section" class="flex items-center gap-4 mb-8">
+        <button
+          onclick="history.back()"
+          class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+          <i class="ri-arrow-left-s-line ri-lg"></i>
+        </button>
+        <h1 class="text-3xl font-bold text-gray-800">Bakery</h1>
+      </div>
+      <!-- cate filter-->
+      <div class="flex gap-3 mb-8 overflow-x-auto pb-2">
+        <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium !rounded-button whitespace-nowrap">
+          All Items
+        </button>
+        <button class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap">
+          Bread
+        </button>
+        <button class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap">
+          Pastries
+        </button>
+        <button class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap">
+          Cakes
+        </button>
+        <button class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap">
+          Cookies
+        </button>
+        <button class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap">
+          Gluten Free
+        </button>
+      </div>
+      <!-- filter sort -->
+      <div class="flex justify-between items-center mb-6">
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <button class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 !rounded-button">
+              <i class="ri-filter-3-line"></i>
+              Filters
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative">
+            <button class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 !rounded-button">
+              <i class="ri-sort-desc"></i>
+              Sort by: Price
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+        </div>
+        <div class="text-sm text-gray-600">Showing 8 items</div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!--1-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://www.allrecipes.com/thmb/DCWXlgmQnMJTPiwFiYm_i3hlCbY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/260540-Chef-Johns-Sourdough-Bread-DDMFS-004-4x3-6791a75a5d804ec28424d04756054c5b.jpg"
+              alt="Sourdough Bread"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">Artisanal</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Sourdough Bread</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Freshly Baked</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹150</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--2-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://www.aheadofthyme.com/wp-content/uploads/2020/05/quick-and-easy-butter-croissants-2.jpg"
+              alt="Butter Croissants"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">French</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Butter Croissants</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Flaky & Buttery</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹200 each</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--3-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://static01.nyt.com/images/2018/12/11/dining/as-garlic-bread/as-garlic-bread-googleFourByThree-v2.jpg"
+              alt="Chocolate Cake"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">Artisanal</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Garlic Bread</h3>
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹450</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--4-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://www.markys.com/media/wysiwyg/macarons.jpg"
+              alt="French Macarons"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">Premium</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">French Macarons</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Assorted Flavors</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹450/dozen</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--5-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://horizon.com/wp-content/uploads/recipe-cin-roll-hero.jpg"
+              alt="Cinnamon Rolls"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">Fresh</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Cinnamon Rolls</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Freshly Baked</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹120 each</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--6-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://www.kingarthurbaking.com/sites/default/files/recipe_legacy/8-3-large.jpg"
+              alt="French Baguette"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">Traditional</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">French Baguette</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Crispy Crust</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹120</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--7-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://cdn.loveandlemons.com/wp-content/uploads/2024/08/chocolate-chip-cookie-recipe.jpg"
+              alt="Chocolate Chip Cookies"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded">Classic</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Chocolate Chip Cookies</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Soft & Chewy</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹50 /dozen</p>
+              <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--8-->
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200">
+            <img
+              src="https://theloopywhisk.com/wp-content/uploads/2023/12/Gluten-Free-White-Bread_1200px-featured.jpg"
+              alt="Gluten Free Bread"
+              class="w-full h-full object-cover object-top"/>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">Gluten Free</span>
+            </div>
+            <h3 class="font-semibold text-gray-800">Gluten Free Bread</h3>
+            <!-- <p class="text-sm text-gray-600 mt-1">Soft & Nutritious</p> -->
+            <div class="flex justify-between items-center mt-3">
+              <p class="font-bold text-primary">₹299</p>
+              <button
+                class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- page no. -->
+      <div class="flex justify-center items-center gap-2 mt-12">
+        <button class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+          <i class="ri-arrow-left-s-line ri-lg"></i>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full shadow-sm !rounded-button">
+          1
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+          2
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+          3
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+          <i class="ri-arrow-right-s-line ri-lg"></i>
+        </button>
+      </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

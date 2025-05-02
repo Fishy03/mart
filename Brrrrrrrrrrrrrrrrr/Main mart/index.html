@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEGA MART Self-Service Kiosk Outlet</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e53e3e',
+            secondary: '#4299e1',
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="container mx-auto">
+          <!-- logo -->
+          <div class="flex justify-center mb-6">
+            <h1 class="text-4xl font-['Pacifico'] text-primary">MEGA MART</h1>
+          </div>
+          <div class="flex items-center gap-4">
+            <!--location-->
+            <div class="flex justify-between bg-gray-50 border border-gray-300 rounded p-2 w-[50px]">
+              <button class="mt-1 text-primary text-sm font-semibold !rounded-button">
+                <svg class="h-8 w-8 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </button>
+            </div>
+            <!-- search bar -->
+            <div class="relative flex-grow">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                <div class="w-6 h-6 flex items-center justify-center text-gray-500">
+                  <i class="ri-search-line ri-lg"></i>
+                </div>
+              </div>
+              <input
+                type="text"
+                class="w-full pl-12 pr-4 py-3 text-lg bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                placeholder="Search for products..."/>
+            </div>  
+            <!-- cart start -->
+            <div class="flex items-center bg-gray-50 border border-gray-300 rounded p-3 min-w-[220px]">
+              <div class="relative mr-4">
+                <div class="w-10 h-10 flex items-center justify-center text-primary">
+                  <i class="ri-shopping-cart-2-line ri-2x"></i>
+                </div>
+                <span class="cart-badge flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full">0</span>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600">
+                  Total: <span class="font-bold text-gray-800">₹0</span>
+                </p>
+                <button
+                  class="mt-1 text-primary text-sm font-semibold !rounded-button">
+                  View Cart
+                </button>
+              </div>
+            </div>
+            <!--cart end-->
+          </div>
+        </div>
+      </header>
+  
+      <main class="container mx-auto px-6 py-8">
+        <!-- Top Selling Items Section -->
+        <section class="mb-12">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Top Selling Items</h2>
+            <div class="flex gap-2">
+              <button
+                id="prev-btn"
+                class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+                <i class="ri-arrow-left-s-line ri-lg"></i>
+              </button>
+              <button
+                id="next-btn"
+                class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+                <i class="ri-arrow-right-s-line ri-lg"></i>
+              </button>
+            </div>
+          </div> 
+          <div class="relative">
+            <div class="scroll-container flex gap-6 overflow-x-auto pb-4">
+              <!--1-->
+              <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-gray-200">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPDi7461mN2OuKTNi_W7yeRIk0khxb2GsOyg&s"
+                    alt="Organic Apples"
+                    class="w-full h-full object-cover object-top"/>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-800">Apples</h3>
+                  <div class="flex justify-between items-center mt-2">
+                    <p class="font-bold text-primary">₹320/kg</p>
+                    <button
+                      class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--2-->
+              <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-gray-200">
+                  <img
+                    src="https://eatmiltons.com/cdn/shop/files/Hearty-Whole-Grain_2048-x-2048.png?v=1722037278&width=1024"
+                    alt="Whole Grain Bread"
+                    class="w-full h-full object-cover object-top"/>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-800">Whole Grain Bread</h3>
+                  <div class="flex justify-between items-center mt-2">
+                    <p class="font-bold text-primary">₹60 each</p>
+                    <button
+                      class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--3-->
+              <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-gray-200">
+                  <img
+                    src="https://i.pinimg.com/736x/55/81/9c/55819c086a50d8c11c6d629a99fce59e.jpg"
+                    alt="Organic Milk"
+                    class="w-full h-full object-cover object-top"/>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-800">Organic Milk</h3>
+                  <div class="flex justify-between items-center mt-2">
+                    <p class="font-bold text-primary">₹90/L</p>
+                    <button
+                      class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div> 
+              <!--4-->
+              <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-gray-200">
+                  <img
+                    src="https://i.pinimg.com/736x/69/25/4f/69254fe08695e320e35ee1689c24a7b5.jpg"
+                    alt="Chicken Breast"
+                    class="w-full h-full object-cover object-top"/>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-800">Eggs</h3>
+                  <div class="flex justify-between items-center mt-2">
+                    <p class="font-bold text-primary">₹5 each</p>
+                    <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--5-->
+              <div class="product-card flex-shrink-0 w-64 bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-40 bg-gray-200">
+                  <img
+                    src="https://www.bigbasket.com/media/uploads/p/l/40120606_19-cadbury-dairy-milk-silk-valentine-special-gift-pack-heart-pop.jpg"
+                    alt="Premium Chocolate"
+                    class="w-full h-full object-cover object-top"/>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-800">Dairy Milk Chocolate</h3>
+                  <div class="flex justify-between items-center mt-2">
+                    <p class="font-bold text-primary">₹250 each</p>
+                    <button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--categories-->
+        <section>
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Shop by Category</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!--1-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <a href="\Brrrrrrrrrrrrrrrrr\veg\veg.html">
+                  <img
+                    src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Fruits & Vegetables"
+                    class="w-full h-full object-cover object-top"/>
+                </a>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Fruits & Vegetables
+                </h3>
+              </div>
+            </div>
+            <!--2-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <a href="\Brrrrrrrrrrrrrrrrr\bake\bake.html">
+                  <img
+                    src="https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/06/assorted-pastries-arranged-in-dispaly.jpg"
+                    alt="Bakery"
+                    class="w-full h-full object-cover object-top"/>
+                </a>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Bakery</h3>
+              </div>
+            </div>
+            <!--3-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <a href="\Brrrrrrrrrrrrrrrrr\dairy\dairy.html">
+                  <img
+                    src="https://www.nutritionadvance.com/wp-content/uploads/2018/06/21-Healthy-Dairy-Products-From-Around-the-World.jpg"
+                    alt="Dairy"
+                    class="w-full h-full object-cover object-top"/>
+                </a>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Dairy</h3>
+              </div>
+            </div>
+            <!--4-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <a href="\Brrrrrrrrrrrrrrrrr\meat\meat.html">
+                  <img
+                    src="https://ctc-group.id/images/2022/11/15/meat-seadfood.jpg"
+                    alt="Meat & Seafood"
+                    class="w-full h-full object-cover object-top"/>
+                </a>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Meat & Seafood
+                </h3>
+              </div>
+            </div>
+            <!--5-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <a href="\Brrrrrrrrrrrrrrrrr\bev\bev.html">
+                  <img
+                    src="https://nawon.com.vn/wp-content/uploads/2024/01/soft-drinks.jpg"
+                    alt="Beverages"
+                    class="w-full h-full object-cover object-top"/>
+                </a>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Beverages</h3>
+              </div>
+            </div>
+            <!--6-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <a href="">
+                  <img
+                    src="https://i.etsystatic.com/29356732/r/il/34dc4c/5159352621/il_1080xN.5159352621_guwf.jpg"
+                    alt="Snacks"
+                    class="w-full h-full object-cover object-top"/>
+                </a>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Snacks</h3>
+              </div>
+            </div>
+            <!--7-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <img
+                  src="https://thumbs.dreamstime.com/b/evening-restaurant-wine-pumpkin-cream-soup-garlic-toasts-154543073.jpg"
+                  alt="Soup"
+                  class="w-full h-full object-cover object-top"/>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Soup</h3>
+              </div>
+            </div>
+            <!--8-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <img
+                  src="https://c.ndtvimg.com/2020-04/chd4rs3g_dessert_625x300_07_April_20.jpg"
+                  alt="Dessert"
+                  class="w-full h-full object-cover object-top"/>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Dessert</h3>
+              </div>
+            </div>
+            <!--9-->
+            <div class="category-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+              <div class="h-48 bg-gray-200">
+                <img
+                  src="https://st3.depositphotos.com/4984749/13210/i/450/depositphotos_132102328-stock-photo-frozen-foods-recipes-vegetables.jpg"
+                  alt="Frozen Foods"
+                  class="w-full h-full object-cover object-top"/>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-gray-800">Frozen Foods</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

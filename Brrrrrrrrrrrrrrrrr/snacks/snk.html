@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEGA MART Self-Service Kiosk Outlet</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e53e3e',
+            secondary: '#4299e1',
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="container mx-auto">
+          <!-- Logo -->
+          <div class="flex justify-center mb-6">
+            <h1 class="text-4xl font-['Pacifico'] text-primary">MEGA MART</h1>
+          </div>
+          <!-- Search and Cart -->
+          <div class="flex items-center gap-4">
+            <!-- Search Bar -->
+            <div class="relative flex-grow">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-gray-500"
+                >
+                  <i class="ri-search-line ri-lg"></i>
+                </div>
+              </div>
+              <input
+                type="text"
+                class="w-full pl-12 pr-4 py-3 text-lg bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                placeholder="Search for products..."
+              />
+            </div>
+            <!-- Shopping Cart -->
+            <div
+              class="flex items-center bg-gray-50 border border-gray-300 rounded p-3 min-w-[220px]"
+            >
+              <div class="relative mr-4">
+                <div
+                  class="w-10 h-10 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-shopping-cart-2-line ri-2x"></i>
+                </div>
+                <span
+                  class="cart-badge flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full"
+                  >3</span
+                >
+              </div>
+              <div>
+                <p class="text-sm text-gray-600">
+                  Total: <span class="font-bold text-gray-800">$42.75</span>
+                </p>
+                <button
+                  class="mt-1 text-primary text-sm font-semibold !rounded-button"
+                >
+                  View Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="container mx-auto px-6 py-8">
+        <!-- Category Header -->
+        <div id="meat-seafood-section" class="flex items-center gap-4 mb-8">
+          <button
+            onclick="history.back()"
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <h1 class="text-3xl font-bold text-gray-800">Snacks</h1>
+        </div>
+        <!-- Subcategories -->
+        <div class="flex gap-3 mb-8 overflow-x-auto pb-2">
+          <button
+            class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium !rounded-button whitespace-nowrap"
+          >
+            All Items
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Chips & Crisps
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Nuts & Seeds
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Popcorn
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Crackers
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Chocolate & Candy
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Trail Mix
+          </button>
+        </div>
+        <!-- Filters and Sort -->
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <button
+                class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 !rounded-button"
+              >
+                <i class="ri-filter-3-line"></i>
+                Filters
+                <i class="ri-arrow-down-s-line"></i>
+              </button>
+            </div>
+            <div class="relative">
+              <button
+                class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 !rounded-button"
+              >
+                <i class="ri-sort-desc"></i>
+                Sort by: Price
+                <i class="ri-arrow-down-s-line"></i>
+              </button>
+            </div>
+          </div>
+          <div class="text-sm text-gray-600">Showing 24 items</div>
+        </div>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Product 1 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=premium%20potato%20chips%20in%20elegant%20packaging%2C%20crispy%20golden%20chips%20scattered%20around%2C%20professional%20snack%20photography%20on%20clean%20white%20background%2C%20high-end%20presentation&width=400&height=300&seq=61&orientation=landscape"
+                alt="Premium Potato Chips"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Popular</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Premium Potato Chips</h3>
+              <p class="text-sm text-gray-600 mt-1">Sea Salt & Vinegar</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$3.99</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=mixed%20roasted%20nuts%20in%20elegant%20glass%20jar%2C%20assorted%20premium%20nuts%20arrangement%2C%20professional%20food%20photography%20on%20clean%20white%20background&width=400&height=300&seq=62&orientation=landscape"
+                alt="Mixed Nuts"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Natural</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Mixed Nuts</h3>
+              <p class="text-sm text-gray-600 mt-1">Roasted & Salted</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$6.99</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=gourmet%20popcorn%20in%20elegant%20container%2C%20buttery%20popcorn%20kernels%2C%20professional%20snack%20photography%20on%20clean%20white%20background&width=400&height=300&seq=63&orientation=landscape"
+                alt="Gourmet Popcorn"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Gourmet</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Gourmet Popcorn</h3>
+              <p class="text-sm text-gray-600 mt-1">Caramel & Sea Salt</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$4.99</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=artisanal%20crackers%20with%20herbs%20and%20seeds%2C%20premium%20cracker%20arrangement%2C%20professional%20food%20photography%20on%20clean%20white%20background&width=400&height=300&seq=64&orientation=landscape"
+                alt="Artisanal Crackers"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Artisanal</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Artisanal Crackers</h3>
+              <p class="text-sm text-gray-600 mt-1">Rosemary & Olive Oil</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$5.49</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 5 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=luxury%20dark%20chocolate%20bars%20with%20cocoa%20beans%2C%20premium%20chocolate%20presentation%2C%20professional%20food%20photography%20on%20clean%20white%20background&width=400&height=300&seq=65&orientation=landscape"
+                alt="Dark Chocolate"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Premium</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Dark Chocolate</h3>
+              <p class="text-sm text-gray-600 mt-1">70% Cocoa</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$4.99</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 6 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=premium%20trail%20mix%20with%20dried%20fruits%20and%20nuts%20in%20elegant%20packaging%2C%20healthy%20snack%20arrangement%2C%20professional%20food%20photography%20on%20clean%20white%20background&width=400&height=300&seq=66&orientation=landscape"
+                alt="Trail Mix"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Healthy</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Premium Trail Mix</h3>
+              <p class="text-sm text-gray-600 mt-1">Fruit & Nut Blend</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$7.99</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 7 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=gourmet%20pretzel%20sticks%20in%20elegant%20packaging%2C%20crunchy%20snack%20presentation%2C%20professional%20food%20photography%20on%20clean%20white%20background&width=400&height=300&seq=67&orientation=landscape"
+                alt="Pretzel Sticks"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Crunchy</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Pretzel Sticks</h3>
+              <p class="text-sm text-gray-600 mt-1">Original Salt</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$3.49</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 8 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://readdy.ai/api/search-image?query=premium%20dried%20fruit%20mix%20in%20elegant%20packaging%2C%20colorful%20dried%20fruits%20arrangement%2C%20professional%20food%20photography%20on%20clean%20white%20background&width=400&height=300&seq=68&orientation=landscape"
+                alt="Dried Fruit Mix"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Natural</span
+                >
+              </div>
+              <h3 class="font-semibold text-gray-800">Dried Fruit Mix</h3>
+              <p class="text-sm text-gray-600 mt-1">Tropical Blend</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">$5.99</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="flex justify-center items-center gap-2 mt-12">
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full shadow-sm !rounded-button"
+          >
+            1
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            2
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            3
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            <i class="ri-arrow-right-s-line ri-lg"></i>
+          </button>
+        </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
