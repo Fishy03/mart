@@ -1,3 +1,3 @@
 # mart
 College project
-Author- Yash, Om, Keshav
+Author- Yash
