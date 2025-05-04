@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEGA MART Self-Service Kiosk Outlet</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e53e3e',
+            secondary: '#4299e1',
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="container mx-auto">
+          <!-- logo -->
+          <div class="flex justify-center mb-6">
+            <h1 class="text-4xl font-['Pacifico'] text-primary">CART</h1>
+          </div>
+          <div class="flex items-center gap-4">
+            <!--location-->
+            <div class="flex justify-between bg-gray-50 border border-gray-300 rounded p-2 w-[50px]">
+              <button class="mt-1 text-primary text-sm font-semibold !rounded-button">
+                <svg class="h-8 w-8 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </button>
+            </div>
+            <!-- search bar -->
+            <div class="relative flex-grow">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                <div class="w-6 h-6 flex items-center justify-center text-gray-500">
+                  <i class="ri-search-line ri-lg"></i>
+                </div>
+              </div>
+              <input
+                type="text"
+                class="w-full pl-12 pr-4 py-3 text-lg bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                placeholder="Search for more products..."/>
+            </div>
+            <!-- help -->
+             
+            <div class="flex justify-between bg-gray-50 border border-gray-300 rounded p-2 w-[50px]"
+                id="help-button">
+                <button class="mt-1 text-primary text-sm font-semibold !rounded-button">
+                    <svg class="h-8 w-8 text-red-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                        <path stroke="none" d="M0 0h24v24H0z"/>  
+                        <circle cx="12" cy="12" r="9" />  
+                        <line x1="12" y1="17" x2="12" y2="17.01" />  
+                        <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+                    </svg>
+                </button>
+            </div>
+          <!--user id-->
+            <div class="flex justify-between bg-gray-50 border border-gray-300 rounded p-2 w-[50px]"
+                id="help-button">
+                <button class="mt-1 text-primary text-sm font-semibold !rounded-button">
+                    <svg class="h-8 w-8 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+      </header>
+  
+      <main class="container mx-auto px-6 py-8">
+        <!-- cate head -->
+        <div id="fruits-veg-section" class="flex items-center gap-4 mb-8">
+          <button
+            onclick="history.back()"
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button">
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <h1 class="text-3xl font-bold text-gray-800">Checkout</h1>
+        </div>
+        
+        
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
