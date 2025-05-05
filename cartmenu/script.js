@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollContainer = document.querySelector('.scroll-container');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const addToCartButtons = document.querySelectorAll('.product-card button');
+    const priceUpdate = document.querySelectorAll(".price");
+    const addToCartButtons = document.querySelectorAll('.add');
+    const subToCartButtons = document.querySelectorAll(".sub");
     const cartBadge = document.querySelector('.cart-badge');
   
     // Category item animation
@@ -47,7 +49,35 @@ document.addEventListener('DOMContentLoaded', () => {
   
         const count = parseInt(cartBadge.textContent);
         cartBadge.textContent = count + 1;
+        priceUpdate.textContent = priceUpdate + priceUpdate;
       });
     });
+
+    // Subtract to cart animation and count update
+    subToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        anime({
+          targets: button,
+          scale: [1, 0.9, 1],
+          duration: 300,
+          easing: 'easeInOutQuad',
+        });
+  
+        anime({
+          targets: cartBadge,
+          scale: [1, 1.2, 1],
+          duration: 400,
+          easing: 'easeInOutQuad',
+        });
+  
+        const count = parseInt(cartBadge.textContent);
+        if(count > 0)
+        {
+          cartBadge.textContent = count - 1;
+          priceUpdate.textContent = priceUpdate - priceUpdate;
+        }
+      });
+    });
+    
   });
   
