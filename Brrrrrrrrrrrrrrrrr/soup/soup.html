@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEGA MART Self-Service Kiosk Outlet</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e53e3e',
+            secondary: '#4299e1',
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="container mx-auto">
+          <!-- Logo -->
+          <div class="flex justify-center mb-6">
+            <h1 class="text-4xl font-['Pacifico'] text-primary">MEGA MART</h1>
+          </div>
+          <!-- Search and Cart -->
+          <div class="flex items-center gap-4">
+            <!-- Search Bar -->
+            <div class="relative flex-grow">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-gray-500"
+                >
+                  <i class="ri-search-line ri-lg"></i>
+                </div>
+              </div>
+              <input
+                type="text"
+                class="w-full pl-12 pr-4 py-3 text-lg bg-gray-50 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                placeholder="Search for products..."
+              />
+            </div>
+            <!-- Shopping Cart -->
+            <div
+              class="flex items-center bg-gray-50 border border-gray-300 rounded p-3 min-w-[220px]"
+            >
+              <div class="relative mr-4">
+                <div
+                  class="w-10 h-10 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-shopping-cart-2-line ri-2x"></i>
+                </div>
+                <span
+                  class="cart-badge flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full"
+                  >3</span
+                >
+              </div>
+              <div>
+                <p class="text-sm text-gray-600">
+                  Total: <span class="font-bold text-gray-800">₹0</span>
+                </p>
+                <a href="\mart\test\checkout.html">
+                <button
+                  class="mt-1 text-primary text-sm font-semibold !rounded-button"
+                >
+                  View Cart
+                </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="container mx-auto px-6 py-8">
+        <!-- Category Header -->
+        <div id="meat-seafood-section" class="flex items-center gap-4 mb-8">
+          <button
+            onclick="history.back()"
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <h1 class="text-3xl font-bold text-gray-800">Soup</h1>
+        </div>
+        <!-- Subcategories -->
+        <!-- <div class="flex gap-3 mb-8 overflow-x-auto pb-2">
+          <button
+            class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium !rounded-button whitespace-nowrap"
+          >
+            All Items
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Chips & Crisps
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Nuts & Seeds
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Popcorn
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Crackers
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Chocolate & Candy
+          </button>
+          <button
+            class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 hover:bg-gray-50 !rounded-button whitespace-nowrap"
+          >
+            Trail Mix
+          </button>
+        </div> -->
+        <!-- Filters and Sort -->
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <button
+                class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 !rounded-button"
+              >
+                <i class="ri-filter-3-line"></i>
+                Filters
+                <i class="ri-arrow-down-s-line"></i>
+              </button>
+            </div>
+            <div class="relative">
+              <button
+                class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 !rounded-button"
+              >
+                <i class="ri-sort-desc"></i>
+                Sort by: Price
+                <i class="ri-arrow-down-s-line"></i>
+              </button>
+            </div>
+          </div>
+          <div class="text-sm text-gray-600">Showing 8 items</div>
+        </div>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Product 1 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/XAAcLdvMkUsRMogCbjcfvfHLe2yiBpiiXwMTwllGepw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFnSWhWbXdsVkwu/anBn"
+                alt="Premium Potato Chips"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Popular</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Tomato Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">Sea Salt & Vinegar</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹60</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/5lWjHrljA6soPCzw6uC3cwajOEl8wH6_GGUekNmr8UY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zd2Fn/YXRncm9jZXJ5LmNv/bS9jZG4vc2hvcC9m/aWxlcy84OTAxMDMw/NTE2MjgzLmpwZz92/PTE3MjQyNTQwMDgm/d2lkdGg9MTQ0NQ"
+                alt="Mixed Nuts"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Natural</span> -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Mixed Nuts</h3>
+              <p class="text-sm text-gray-600 mt-1">Sweet Corn Soup</p>
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹60</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/RA83A7YKqIUjS199WJcT-4aVy1u6hqLTXmn4mvBa1j0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFtUXlZUzZ5dEwu/anBn"
+                alt="Gourmet Popcorn"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Gourmet</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Hot & Sour Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">Caramel & Sea Salt</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹60</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/mYFy11_RBLLpPML3ZlGqcgUMjz5E4NvCZUakIWQXpNo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vQ2hp/bmctUy1JbnN0YW50/LU1hbmNob3ctQ29v/ay1VcC1Tb3VwLTU1/R19jMDQ5ODAyOS1k/ZDNhLTQxYWMtOWNk/My0yMTg0ZDgyOGNi/YTUuMDcxODZlMjIw/MjUyNGY4ZmExYWE4/Zjg1NDY1NWRhZDUu/anBlZz9vZG5IZWln/aHQ9NTgwJm9kbldp/ZHRoPTU4MCZvZG5C/Zz1GRkZGRkY"
+                alt="Artisanal Crackers"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Artisanal</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Manchow Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">Rosemary & Olive Oil</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹60</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 5 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/HW9Rj4TvQONueewSj8z64VHrtIJ0Lii5hIctmo---5Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzYxZTlHTkRjZ3VM/LmpwZw"
+                alt="Dark Chocolate"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Premium</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Chicken Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">70% Cocoa</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹280</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 6 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/kUGZ4I5qu-Qy4zVWgrm8AjOXwq_bgJY7k_CE9Ofdfa4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9raXdp/Y29ybmVyZGFpcnku/Y29tL2Nkbi9zaG9w/L3Byb2R1Y3RzL211/c2hyb29tLTQwMHg1/NjAuanBnP3Y9MTY3/NzM5OTY5MiZ3aWR0/aD0xNDQ1"
+                alt="Trail Mix"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Healthy</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Mushroom Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">Fruit & Nut Blend</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹550</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 7 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/U2KMz3Wu3rvabJKEjpRNMpoa3fLTU1gAwXfmM3zO3w0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Z3JvZmVycy5jb20v/Y2RuLWNnaS9pbWFn/ZS9mPWF1dG8sZml0/PXNjYWxlLWRvd24s/cT04NSxtZXRhZGF0/YT1ub25lLHc9NDgw/LGg9NDgwL2FwcC9h/c3NldHMvcHJvZHVj/dHMvc2xpZGluZ19p/bWFnZXMvanBlZy9i/ODIxYzhhOC0zMzk3/LTQ3MzEtYWFhOC02/YWRlYzU3MGZjOGIu/anBnP3RzPTE3MjMw/OTg0Nzg"
+                alt="Knorr Classic Mixed Vegetable Soup"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Crunchy</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Veg Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">Original Salt</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹59</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 8 -->
+          <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-200">
+              <img
+                src="https://imgs.search.brave.com/wOHgLtsBBnOKiwlgPOGmTNJ1RMI94xfI3p5IBAHCBQ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Z3JvZmVycy5jb20v/Y2RuLWNnaS9pbWFn/ZS9mPWF1dG8sZml0/PXNjYWxlLWRvd24s/cT04NSxtZXRhZGF0/YT1ub25lLHc9NDgw/LGg9NDgwL2FwcC9h/c3NldHMvcHJvZHVj/dHMvbGFyZ2VfaW1h/Z2VzL2pwZWcvM2Yy/NGI4ZTUtMzE0Yy00/NzdhLTg1NzgtZTVk/N2JmZjIxMTIxLmpw/Zz90cz0xNzIzMzc1/NTEz"
+                alt="Knorr International Shanghai Hot & Sour Chicken Soup"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <!-- <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded"
+                  >Natural</span
+                > -->
+              </div>
+              <h3 class="font-semibold text-gray-800">Hot & Sour Chicken Soup</h3>
+              <!-- <p class="text-sm text-gray-600 mt-1">Tropical Blend</p> -->
+              <div class="flex justify-between items-center mt-3">
+                <p class="font-bold text-primary">₹75</p>
+                <button
+                  class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 !rounded-button whitespace-nowrap"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="flex justify-center items-center gap-2 mt-12">
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full shadow-sm !rounded-button"
+          >
+            1
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            2
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            3
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50 !rounded-button"
+          >
+            <i class="ri-arrow-right-s-line ri-lg"></i>
+          </button>
+        </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
