@@ -1,47 +1,37 @@
-:where([class^="ri-"])::before {
-    content: "\f3c2";
-  }
-  
-  body {
-    background-color: #f9fafb;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  .category-item,
-  .product-card {
-    transition: all 0.3s ease;
-  }
-  .category-item:hover,
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-  }
-  
-  .scroll-container::-webkit-scrollbar {
-    height: 6px;
-  }
-  .scroll-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-  .scroll-container::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 10px;
-  }
-  .scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
-  }
-  
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  padding: 2rem;
+  text-align: center;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, select {
+  padding: 0.5rem;
+  margin: 0.25rem;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b91c1c;
+}

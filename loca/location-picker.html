@@ -1,72 +1,35 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Pick Your Location</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</head>
-<body class="min-h-screen bg-gray-50 font-['Poppins'] flex flex-col items-center justify-center p-6">
-
-  <h1 class="text-2xl font-bold text-gray-800 mb-4">Select Your Location</h1>
-
-  <div id="map" class="w-full max-w-3xl h-[400px] rounded-lg shadow mb-6"></div>
-
-  <p id="coords-display" class="mb-4 text-gray-600">Click on the map to select a location.</p>
-
-  <button onclick="confirmLocation()" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-red-700">
-    Confirm & Return to Checkout
-  </button>
-  <script src="script.js"></script>
-
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pick Location</title>
-  <style>
-    #map { height: 100%; width: 100%; }
-  </style>
+  <title>Select Your Location</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <h1>Select Your Location</h1>
+
+  <!-- City Dropdown -->
+  <select id="city-select">
+    <option value="">Select a City</option>
+    <option value="30.324860,78.043613">Dehradun</option>
+    <option value="28.6139,77.2090">New Delhi</option>
+    <option value="19.0760,72.8777">Mumbai</option>
+    <option value="12.9716,77.5946">Bangalore</option>
+    <option value="13.0827,80.2707">Chennai</option>
+    <option value="22.5726,88.3639">Kolkata</option>
+    <option value="17.3850,78.4867">Hyderabad</option>
+  </select>
+
   <div id="map"></div>
-  <script>
-    let map, marker;
 
-    function initMap() {
-      const defaultLocation = { lat: 28.6139, lng: 77.2090 }; // Default to New Delhi
+  <input type="text" id="lat" placeholder="Latitude" readonly />
+  <input type="text" id="lng" placeholder="Longitude" readonly />
+  <br />
+  <button onclick="saveLocation()">Confirm Location</button>
 
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: defaultLocation,
-        zoom: 13
-      });
-
-      marker = new google.maps.Marker({
-        position: defaultLocation,
-        map: map,
-        draggable: true
-      });
-
-      map.addListener('click', function(event) {
-        marker.setPosition(event.latLng);
-        document.getElementById('lat').value = event.latLng.lat();
-        document.getElementById('lng').value = event.latLng.lng();
-      });
-    }
-
-    function saveLocation() {
-      const lat = document.getElementById('lat').value;
-      const lng = document.getElementById('lng').value;
-      const address = document.getElementById('address').value;
-      // Save the location data (e.g., send to server or store locally)
-      console.log(`Address: ${address}, Latitude: ${lat}, Longitude: ${lng}`);
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
